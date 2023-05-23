@@ -1,9 +1,0 @@
-a{
-  color: black;
-  /* //删除下划线 */
-  text-decoration: none;
-  /* hover颜色为金色 */
-  &:hover{
-    color:gold;
-  }
-}

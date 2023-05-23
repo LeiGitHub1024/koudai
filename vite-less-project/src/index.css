@@ -1,0 +1,18 @@
+a{
+  color: black;
+  /* //删除下划线 */
+  text-decoration: none;
+  /* hover颜色为金色 */
+  &:hover{
+    color:gold;
+  }
+}
+
+body{
+  background: linear-gradient(to bottom, rgba(250, 208, 196, 0.38), rgba(255, 209, 223, 0.38));
+
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
