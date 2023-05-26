@@ -1,8 +1,35 @@
-import React from 'react';
+import React,{useState} from 'react';
 import { Input,Button } from '@arco-design/web-react';
 import { IconArrowRise } from '@arco-design/web-react/icon';
 import voidIcon from '../assets/A03留言板-子女视角-语音按钮.png'
-function myInput() {
+import request from '../utils/request';
+const TextArea = Input.TextArea;
+
+
+function myInput(props) {
+  const {callback1,callback2,callback3} = props
+  const [message,setMessage]=useState('')
+  const pressEnter = async (e) => {
+    
+    //孩子这边新增一个留言
+    callback1(message)
+
+    // 调接口
+    const formData = new FormData();
+    formData.append('content', message);
+    setMessage('')
+
+     //chat那边新增一个空留言
+    callback2()
+    //向后端请求数据
+    let res = await request(formData,'getChatReply')
+    console.log(res.data)
+    //chat那边把空留言替换成后端返回的数据
+    callback3(res.data)
+
+
+  }
+
   const inputContainerStyle = {
     // margin: '20px 20px',
     position: 'absolute',
@@ -34,7 +61,7 @@ function myInput() {
   }
   return (
     <div style={inputContainerStyle}>
-      <Input style={inputStyle} allowClear placeholder='请输入你的问题' />
+      <Input value={message} onChange={e => setMessage(e)} onPressEnter={e=>pressEnter(e)} style={inputStyle} allowClear placeholder='请输入你的问题' />
       
       {/* <Button shape='circle' type='primary' icon={<IconArrowRise />} /> */}
       <div style={voiceStyle}></div>

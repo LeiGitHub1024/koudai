@@ -25,18 +25,21 @@ function App() {
             <Link to="/"><IconLeft /></Link>
         </div> */}
         <div className='App'>
-          {/* <Routes >
+
+          {/* 这里是孩子端 */}
+          <Routes >
             <Route exact path="/" element={<Home />} />
             <Route path="/story" element={<Story />} />
             <Route path="/review" element={<Review />} />
             <Route path="/chat" element={<Chat />} />
             <Route path="/messageboard" element={<MessageBoard/>} />
-          </Routes> */}
+          </Routes>
 
-          <Routes >
+          {/* 这里是父母端 */}
+          {/* <Routes >
             <Route path="/review" element={<Review />} />
             <Route path="/" element={<ParrentMessageBoard/>} />
-          </Routes>
+          </Routes> */}
 
         </div>
       </Router>

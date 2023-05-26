@@ -12,7 +12,7 @@ function Card(props) {
       <div className='message-container'>
         <div className='chat-message'>{message}</div>
         <div className='chat-voice' style={{ backgroundImage: `url(${voiceIcon})` }}>
-          23″
+          {Math.floor(message.length/2)}″
         </div>
     
       </div>

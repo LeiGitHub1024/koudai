@@ -8,7 +8,7 @@ import ReturnComponent from '../components/ReturnComponent/return';
 import ReplyDrawer from './ReplyDrawer';
 import request from '../utils/request';
 import './MessageBoard.less'
-
+import reviewImg from '../assets/子女成长回顾.png'
 
 import boardHead from '../assets/A02留言板-头部.png'
 import Img1 from '../images/1.png';
@@ -64,7 +64,7 @@ function MessageBoard() {
     <div className='message-container' ref={refWrapper} >
       {/* <ReturnComponent/> */}
       <div className='scroll-container'  >
-        <Link style={{ float:'right', right: 0, margin:'30px 30px 0 0' }} to="/review"> 子女回顾</Link>
+        <Link style={{ float:'right', right: 0, margin:'30px 30px 0 0',backgroundImage:`url(${reviewImg})`,backgroundRepeat:'no-repeat',height:17, width:100 }} to="/review"> </Link>
 
       {/* <div style={{ margin: '10px 20px', fontSize: '30px' }}>快乐家庭
       
