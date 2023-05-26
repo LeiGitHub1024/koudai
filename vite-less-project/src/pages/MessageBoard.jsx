@@ -57,7 +57,7 @@ function MessageBoard() {
           <div>
             <div style={dataStyle}>05/26</div>
               {data.map(item => (
-                <MessageCard key={item?.message_id} usr={item?.user_name} time={item?.date_time} voice={item?.audio_file} voiceColor={item?.emotion_arousal} voiceBackgroundColor={item?.emotion_arousal}  message={item?.content} color='gold' />
+                <MessageCard key={item?.message_id} usr={item?.user_name} time={item?.date_time} voice={item?.audio_file} voiceColor={item?.emotion_arousal} voiceBackgroundColor={item?.emotion_arousal}  message={item?.content} replies={item?.replies} color='gold' />
               ))}
           </div>
         )}

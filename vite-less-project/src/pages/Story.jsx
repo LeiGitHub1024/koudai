@@ -4,6 +4,8 @@ import { Button } from '@arco-design/web-react';
 import bg_story from '../images/bg_story.png'
 import { Link } from 'react-router-dom';
 import ReturnComponent from '../components/ReturnComponent/return.jsx';
+ import genie from '../music/genie_story.wav'
+
 function Story() {
 
   const storyContainerStyle = {
@@ -74,7 +76,7 @@ function Story() {
       <div style={textStyle}>当前故事词语当前故事词语当前故事词语当前故事词语当前故事词语当前故事词语</div> */}
       <div style={operateStyle}>
 
-        <audio style={{display:'none'}} ref={audioRef} src='https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3'  controls />
+        <audio style={{display:'none'}} ref={audioRef} src={genie} type="audio/wav"  controls />
         {/* <Button type='text' onClick={preMusic} icon={<IconSkipPrevious fontSize={34} />}></Button> */}
 
         <Button style={{backgroundColor:'#ffcb04',height:58,width:58,fontSize:40,paddingLeft:8,borderRadius:'50%'}}  onClick={handlePlayPause}   >{isPlaying? <IconPauseCircle  /> : <IconCaretRight />} </Button>
@@ -89,6 +91,9 @@ function Story() {
       </div>
     </div>
   );
+
+
+
 }
 
 export default Story;

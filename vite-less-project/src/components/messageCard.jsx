@@ -17,7 +17,7 @@ const voiceBackgroundMap = {
 }
 
 function Card(props) {
-  const { usr, message, color, time, images = [], voiceColor, voiceBackgroundColor,voice } = props;
+  const { usr, message, color, time, images = [], voiceColor, voiceBackgroundColor,voice, replies } = props;
 
   const cardStyle = {
     width: '80%',
@@ -99,7 +99,7 @@ function Card(props) {
 
         </div>
         <div style={bottomUtilStyle}>
-          <audio style={{display:'none'}} ref={audioRef} src={voice}  controls />
+          <audio style={{display:'none'}} ref={audioRef} src={voice} type="audio/wav"  controls />
           <button onClick={handlePlayPause} style={buttonStyle} > 21 &nbsp;l丨l丨l丨l</button>
 
           <div>
