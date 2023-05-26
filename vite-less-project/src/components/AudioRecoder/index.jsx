@@ -51,6 +51,7 @@ const AudioRecorder = (props) => {
       localStorage.setItem('audio' + timestamp, audioBlob);
       const formData = new FormData();
       formData.append('user_id', 1);
+      formData.append('audio_id', 'audio' + timestamp);
       formData.append('audio_file', audioBlob);
       await request(formData, 'addMessage')
       recordHook()
