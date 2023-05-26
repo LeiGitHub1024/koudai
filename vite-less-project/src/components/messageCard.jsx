@@ -1,4 +1,5 @@
-import React,{useRef} from 'react';
+import React, { useRef,useState } from 'react';
+import { Button } from '@arco-design/web-react';
 import { IconHeart, IconMessage } from '@arco-design/web-react/icon';
 const voiceColorMap = {
   1: '#ffd100',
@@ -16,8 +17,8 @@ const voiceBackgroundMap = {
 }
 
 function Card(props) {
-  const { usr, message, color, time, images = [], voiceColor, voiceBackgroundColor } = props;
-  
+  const { usr, message, color, time, images = [], voiceColor, voiceBackgroundColor,voice } = props;
+
   const cardStyle = {
     width: '80%',
     backgroundColor: 'white',
@@ -67,7 +68,15 @@ function Card(props) {
   }
 
   const audioRef = useRef(null);
-
+  const [isPlaying, setIsPlaying] = useState(false);
+  const handlePlayPause = () => {
+    setIsPlaying(!isPlaying);
+    if (isPlaying) {
+      audioRef.current.pause();
+    } else {
+      audioRef.current.play();
+    }
+  };
   return (
     <div>
       
@@ -90,9 +99,11 @@ function Card(props) {
 
         </div>
         <div style={bottomUtilStyle}>
-          <audio style={{display:'none'}} ref={audioRef} src='https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3'  controls />
-          <button style={buttonStyle} > 21 &nbsp;l丨l丨l丨l</button>
+          <audio style={{display:'none'}} ref={audioRef} src={voice}  controls />
+          <button onClick={handlePlayPause} style={buttonStyle} > 21 &nbsp;l丨l丨l丨l</button>
+
           <div>
+
             <IconHeart style={{fontSize:30,marginRight:28}} />
             <IconMessage style={{fontSize:30}} />
           
