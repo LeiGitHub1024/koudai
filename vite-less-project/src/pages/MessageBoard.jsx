@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 import { IconLeft } from '@arco-design/web-react/icon';
 import ReturnComponent from '../components/ReturnComponent/return';
 import NewMessageDrawer from './NewMessageDrawer';
+import request from '../utils/request';
 
 import familyImg from '../images/family.png';
 import Img1 from '../images/1.png';
@@ -14,6 +15,7 @@ import Img3 from '../images/3.png';
 import Img4 from '../images/4.png';
 import Img5 from '../images/5.png';
 import Img6 from '../images/6.png';
+import { func } from 'prop-types';
 
 
 
@@ -31,13 +33,12 @@ function MessageBoard() {
   }
 
   useEffect(() => {
-    //调localhost test的get接口，并将结果打印出来
-    // fetch('http://localhost:3000/test')
-    //   .then(response => response.json())
-    //   .then(data => console.log(data));
-    
-    
+    init();    
   }, []);
+  async function init() {
+    let res = await request()
+    console.log(res)
+  }
   const refWrapper = useRef(null);
 
 

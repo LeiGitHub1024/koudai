@@ -13,7 +13,7 @@ function App() {
 
   return (
     <>
-      <StartPage visible={startPageVisible} setVisible={setStartPageVisible}></StartPage>
+      {/* <StartPage visible={startPageVisible} setVisible={setStartPageVisible}></StartPage> */}
 
       <Router>
       {/* <div style={{width:'100%'}}>
