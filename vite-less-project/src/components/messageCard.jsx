@@ -1,6 +1,7 @@
 import React, { useRef,useState } from 'react';
 import { Button } from '@arco-design/web-react';
 import { IconHeart, IconMessage } from '@arco-design/web-react/icon';
+import replyIcon from '../assets/回复.png'
 const voiceColorMap = {
   1: '#ffd100',
   2: '#ffd100',
@@ -17,14 +18,15 @@ const voiceBackgroundMap = {
 }
 
 function Card(props) {
-  const { usr, message, color, time, images = [], voiceColor, voiceBackgroundColor,voice, replies } = props;
+  const {key1, usr, message, color, time, images = [], voiceColor, voiceBackgroundColor,voice, replies, commontCallback } = props;
 
   const cardStyle = {
     width: '80%',
     backgroundColor: 'white',
     borderRadius: '5px',
     margin: '10px 0px 10px 30px ',
-    padding: '10px'
+    padding: '10px',
+    boxShadow: '0 0 12px 8px rgba(16,0,0,0.03)',
   }
   const avaterStyle = {
     width: '28px',
@@ -101,14 +103,23 @@ function Card(props) {
         <div style={bottomUtilStyle}>
           <audio style={{display:'none'}} ref={audioRef} src={voice} type="audio/wav"  controls />
           <button onClick={handlePlayPause} style={buttonStyle} > 21 &nbsp;l丨l丨l丨l</button>
-
           <div>
-
-            <IconHeart style={{fontSize:30,marginRight:28}} />
-            <IconMessage style={{fontSize:30}} />
-          
+            <IconHeart style={{ fontSize: 30, marginRight: 28 }} />
+            <IconMessage onClick={()=>{commontCallback(key1)}} style={{fontSize:30}} />
           </div>
-            
+        </div>
+
+        <div style={{ marginTop:20, display: replies?.length ?'flex':'none' ,padding:10,  borderRadius:'15px',backgroundColor:'#f4f4f4'}}>
+          <IconMessage style={{fontSize:20, margin:'8 2 0 0 '}} />
+
+          <div style={{ fontWeight: 400, color: '#666' }}>
+            {replies?.map((item) => {
+              // console.log(item)
+              return (
+                <div key={item?.reply_id} style={{ margin: 5 }}>{item?.user_name}: { item?.content}</div>
+              )
+            })}
+          </div>
         </div>
 
       </div>

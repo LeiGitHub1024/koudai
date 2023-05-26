@@ -9,7 +9,8 @@ a{
 }
 
 body{
-  background: linear-gradient(to bottom, rgba(250, 208, 196, 0.38), rgba(255, 209, 223, 0.38));
+  /* background: linear-gradient(to bottom, '#222','#222'); */
+  background-color: #222;
 
   height:100vh;
   display:flex;

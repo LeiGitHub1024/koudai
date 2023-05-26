@@ -8,7 +8,7 @@ function ReturnComponent(props) {
 
   return (
     <Link style={{ position:'absolute', left: 0 }} to={to}>
-        <div style={{ width: 43, height: 43, backgroundColor: 'white', borderRadius: '50%', margin: '20px 0 0 20px', display: 'flex', justifyContent: 'center', alignItems: 'center' }}
+        <div style={{ width: 43, height: 43, backgroundColor: 'white', borderRadius: '50%', margin: '13px 0 0 16px', display: 'flex', justifyContent: 'center', alignItems: 'center' }}
         >
           <IconLeft  fontSize={28} />
         </div>

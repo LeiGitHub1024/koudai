@@ -5,7 +5,7 @@ import { IconPlus, } from '@arco-design/web-react/icon';
 import { Link } from 'react-router-dom';
 import { IconLeft } from '@arco-design/web-react/icon';
 import ReturnComponent from '../components/ReturnComponent/return';
-import NewMessageDrawer from './NewMessageDrawer';
+import ReplyDrawer from './ReplyDrawer';
 import request from '../utils/request';
 import './MessageBoard.less'
 
@@ -24,6 +24,8 @@ import { func } from 'prop-types';
 function MessageBoard() {
   const [visible2, setVisible2] = useState();
   const [visible, setVisible] = useState(false)
+  const [messsageId, setMesssageId] = useState(1)
+  
   const [data, setData] = useState([])
   const dataStyle = {
     margin: '10px 0px 0 30px',
@@ -37,6 +39,8 @@ function MessageBoard() {
   useEffect(() => {
     init();    
   }, []);
+
+ 
   async function init() {
     const formData = new FormData();
     formData.append('user_id', 1);
@@ -45,13 +49,18 @@ function MessageBoard() {
   }
   const refWrapper = useRef(null);
 
-
+  const commontCallback = (id) => {
+    // console.log('xxx',id)
+    setMesssageId(id)
+    setVisible2(true)
+    //下面掉接口，发送数据
+  }
 
   return (
     <div className='message-container' ref={refWrapper} >
-      <ReturnComponent/>
+      {/* <ReturnComponent/> */}
       <div className='scroll-container'  >
-      {/* <Link to="/review"> Review</Link> */}
+        <Link style={{ float:'right', right: 0, margin:'30px 30px 0 0' }} to="/review"> 子女回顾</Link>
 
       {/* <div style={{ margin: '10px 20px', fontSize: '30px' }}>快乐家庭
       
@@ -64,7 +73,7 @@ function MessageBoard() {
           <div>
             <div style={dataStyle}>05/26</div>
               {data.map(item => (
-                <MessageCard key={item?.message_id} usr={item?.user_name} time={item?.date_time} voice={item?.audio_file} voiceColor={item?.emotion_arousal} voiceBackgroundColor={item?.emotion_arousal}  message={item?.content} replies={item?.replies} color='gold' />
+                <MessageCard key1={item?.message_id} key={item?.message_id} usr={item?.user_name} time={item?.date_time} voice={item?.audio_file} voiceColor={item?.emotion_arousal} voiceBackgroundColor={item?.emotion_arousal}  message={item?.content} replies={item?.replies} commontCallback={commontCallback} color='gold' />
               ))}
           </div>
         )}
@@ -79,19 +88,17 @@ function MessageBoard() {
       </div>
       <div style={{position:'absolute',width:'100%',backgroundColor:'white',height:'80px',bottom:'0px'}}></div>
       <div style ={{width:'100%', display:'flex', justifyContent:'center',position:'absolute',bottom:30}}>
-          <Button size='large' style={{ marginBottom:'10px', width: 80, height: 80, borderRadius: '50%', color:'black',backgroundColor:'#ffcb04',border:'solid 6px white'}} type='primary' icon={<IconPlus style={{fontSize: 40, }} />}  onClick={() => {setVisible2(true);}} ></Button>
+          <Button size='large' style={{ marginBottom:'10px', width: 80, height: 80, borderRadius: '50%', color:'black',backgroundColor:'#ffcb04',border:'solid 6px white'}} type='primary' icon={<IconPlus style={{fontSize: 40, }} />}  ></Button>
       </div>
       </div>
 
 
-
-
-      <NewMessageDrawer
+      <ReplyDrawer
         visible={visible2}
         setVisible={setVisible2}
         getPopupContainer={() => refWrapper && refWrapper.current}
 
-      ></NewMessageDrawer>
+      ></ReplyDrawer>
 
       
       

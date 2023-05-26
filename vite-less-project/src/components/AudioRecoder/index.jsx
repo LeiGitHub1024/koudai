@@ -1,7 +1,10 @@
 import React, { useState ,useEffect} from 'react';
 import request from '../../utils/request';
+
+import buttonIcon from '../../assets/A03留言板-子女视角-语音按钮.png'
+
 const AudioRecorder = (props) => {
-  const {recordHook} = props
+  const {recordHook,apiName='addMessage',userId=1} = props
   const [audioBlob, setAudioBlob] = useState(null);
   const [mediaRecorder, setMediaRecorder] = useState(null);
   const [isRecording, setIsRecording] = useState(false);
@@ -50,10 +53,11 @@ const AudioRecorder = (props) => {
       console.log('保存音频:', 'audio' + timestamp, audioBlob);
       localStorage.setItem('audio' + timestamp, audioBlob);
       const formData = new FormData();
-      formData.append('user_id', 1);
+      formData.append('user_id', userId);
+      formData.append('message_id', 1); 
       formData.append('audio_id', 'audio' + timestamp);
       formData.append('audio_file', audioBlob);
-      await request(formData, 'addMessage')
+      await request(formData, apiName)
       recordHook()
       setAudioBlob(null)
     }
@@ -61,8 +65,8 @@ const AudioRecorder = (props) => {
 
   return (
     <div>
-      <button onClick={isRecording ? stopRecording : startRecording}>
-        {isRecording ? '停止录音' : '开始录音'}
+      <button onClick={isRecording ? stopRecording : startRecording} style={{backgroundImage:`url(${buttonIcon})`,  height:62,width:190,border:'0px',backgroundColor:'transparent'  }}>
+        {/* {isRecording ? '停止录音' : '开始录音'} */}
       </button>
       {/* <button onClick={saveRecording} disabled={!audioBlob}>
         保存录音

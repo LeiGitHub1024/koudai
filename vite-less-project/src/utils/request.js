@@ -11,7 +11,7 @@ export default async function request(formData, apiName) {
     }
 
     const data = await response.json();
-    console.log(data)
+    // console.log(data)
     return data;
   } catch (error) {
     return error
