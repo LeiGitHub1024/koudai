@@ -40,6 +40,10 @@ function MessageBoard() {
     init();    
   }, []);
 
+  useEffect(() => {
+    init();
+  }, [visible2]);
+
  
   async function init() {
     const formData = new FormData();
