@@ -83,7 +83,6 @@ function Story() {
 
         {/* <Button type='text' onClick={nextMusic} icon={<IconSkipNext fontSize={34} />}></Button> */}
 
-        
         {/* 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3',
           'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3',
           'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3', */}

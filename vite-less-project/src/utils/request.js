@@ -1,9 +1,7 @@
 
-export default async function request(props) {
-  const formData = new FormData();
-  formData.append('user_id', 1);
+export default async function request(formData, apiName) {
   try {
-    const response = await fetch('http://localhost:5000/getMessage', {
+    const response = await fetch('http://localhost:5000/'+apiName, {
       method: 'POST',
       body: formData
     });
@@ -13,6 +11,7 @@ export default async function request(props) {
     }
 
     const data = await response.json();
+    console.log(data)
     return data;
   } catch (error) {
     return error

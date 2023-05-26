@@ -2,6 +2,7 @@ import React from 'react';
 import { Drawer,Button } from '@arco-design/web-react';
 import { IconClose } from '@arco-design/web-react/icon';
 import FlyCard from '../components/flyCard';
+import AudioRecorder from '../components/AudioRecoder';
 
 function NewMessageDrawer(props) {
   //从props中获取visible
@@ -34,9 +35,12 @@ function NewMessageDrawer(props) {
         </div>
 
         <div style={{ height:'36%', display:'flex',flexDirection:'column',justifyContent:'center',alignItems:'center'}}>
-          <Button style={{borderRadius:50,height:50,width:180,fontSize:21,fontWeight:700,color:'black',backgroundColor:'#FFD100'}} type='text'> 按住说话</Button>
-          <div style={{height:30}}></div>
-          <div style={{color:'#ccc',fontSize:14}}>输入文字</div>
+          {/* <Button style={{borderRadius:50,height:50,width:180,fontSize:21,fontWeight:700,color:'black',backgroundColor:'#FFD100'}} type='text'> 按住说话</Button> */}
+          <AudioRecorder recordHook={() => { setVisible(false)}}></AudioRecorder>
+
+          <div style={{ height: 30 }}></div>
+          <div style={{ color: '#ccc', fontSize: 14 }}>输入文字</div>
+
         </div>
       </div>
 

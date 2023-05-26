@@ -36,7 +36,9 @@ function MessageBoard() {
     init();    
   }, []);
   async function init() {
-    let res = await request()
+    const formData = new FormData();
+    formData.append('user_id', 1);
+    let res = await request(formData,'getMessage')
     setData(res?.data)
   }
   const refWrapper = useRef(null);
