@@ -22,7 +22,7 @@ import { func } from 'prop-types';
 function MessageBoard() {
   const [visible2, setVisible2] = useState();
   const [visible, setVisible] = useState(false)
-
+  const [data, setData] = useState([])
   const dataStyle = {
     margin: '10px 0px 0 30px',
     fontSize: '28px', 
@@ -37,7 +37,7 @@ function MessageBoard() {
   }, []);
   async function init() {
     let res = await request()
-    console.log(res)
+    setData(res?.data)
   }
   const refWrapper = useRef(null);
 
@@ -53,12 +53,19 @@ function MessageBoard() {
       <div style={{height:40,width:100,backgroundImage:`url(${familyImg})`,backgroundSize:'cover',backgroundRepeat:'no-repeat',margin:'10px 20px'}}></div>
 
       <div style={MessageContainerStyle}>
-
-        <div style={dataStyle}>05/26</div>
+          {data.length && (
+          <div>
+            <div style={dataStyle}>05/26</div>
+              {data.map(item => (
+                <MessageCard key={item?.message_id} usr={item?.user_name} time={item?.date_time} voiceColor={item?.emotion_arousal} voiceBackgroundColor={item?.emotion_arousal}  message={item?.content} color='gold' />
+              ))}
+          </div>
+        )}
+        <div style={dataStyle}>05/25</div>
         <MessageCard usr="我" time='14:24' voiceColor='#ffd100' voiceBackgroundColor='#FEF9D3' images={[Img1,Img2,Img3]} message="今天下午上数学课的时候，下起一场特大的雨。老师让我们到外面观察雨，一些同学非常开心，调皮的同学把裤子卷得高高的，然后在水坑里跳来跳去，水溅得到处都是。多么快乐的一场雨啊！" color='gold' />
         <MessageCard usr="我" time='11:24' voiceColor='#35a7ff' voiceBackgroundColor='#D6F6FE' message="上午和好朋友吵架了，心情不美丽！" color='green' />
         <MessageCard usr="妈妈" time='09:30' voiceColor='#917eff' voiceBackgroundColor='#DaD4Fe' images={[Img4,Img5]} message="今天上午翻看宝宝相册，真可爱啊！一眨眼就长大了，很想悠悠。" color='gold' />
-        <div style={dataStyle}>05/25</div>
+        <div style={dataStyle}>05/24</div>
         <MessageCard usr="爸爸" time="21:40" images={[Img6]} voiceColor='#d57ac0' voiceBackgroundColor='#ffe5d3'  message="今天！跑单王！！" color='gold' />
         <MessageCard usr="我" time="12:20" voiceColor='#d57ac0' voiceBackgroundColor='#ffe5d3' message="上午被老师表扬了，开心！" color='green' />
         <div style={{height:50}}></div>

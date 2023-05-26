@@ -1,7 +1,23 @@
 import React,{useRef} from 'react';
-import { IconHeart,IconMessage } from '@arco-design/web-react/icon';
+import { IconHeart, IconMessage } from '@arco-design/web-react/icon';
+const voiceColorMap = {
+  1: '#ffd100',
+  2: '#ffd100',
+  3: '#ffd100',
+  4: '#ffd100',
+  5: '#ffd100',
+}
+const voiceBackgroundMap = {
+  1: '#FEF9D3',
+  2: '#FEF9D3',
+  3: '#FEF9D3',
+  4: '#FEF9D3',
+  5: '#FEF9D3',
+}
+
 function Card(props) {
-  const { usr,message,color,time,images=[],voiceColor,voiceBackgroundColor } = props;
+  const { usr, message, color, time, images = [], voiceColor, voiceBackgroundColor } = props;
+  
   const cardStyle = {
     width: '80%',
     backgroundColor: 'white',
@@ -46,8 +62,8 @@ function Card(props) {
     height: 28,
     borderRadius: '15px',
     border: 0,
-    backgroundColor: voiceBackgroundColor,
-    color: voiceColor,
+    backgroundColor: voiceBackgroundMap[voiceBackgroundColor],
+    color: voiceColorMap[voiceColor],
   }
 
   const audioRef = useRef(null);
