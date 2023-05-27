@@ -14,7 +14,7 @@ import Img5 from '../assets/5-爸爸骑车小心.png'
 
 function NewMessageDrawer(props) {
   //从props中获取visible
-  const { visible, setVisible,getPopupContainer } = props;
+  const { visible, setVisible,getPopupContainer,hooks } = props;
 
   return (
     <Drawer
@@ -41,7 +41,7 @@ function NewMessageDrawer(props) {
 
 
         <div style={{ position: 'absolute', left: 0,right:0, top:640, display:'flex',flexDirection:'column',justifyContent:'center',alignItems:'center'}}>
-          <AudioRecorder recordHook={() => { setVisible(false)}}></AudioRecorder>
+          <AudioRecorder recordHook={() => { setVisible(false);hooks()}}></AudioRecorder>
         </div>
       </div>
 

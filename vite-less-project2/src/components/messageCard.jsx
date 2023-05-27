@@ -19,7 +19,7 @@ const voiceBackgroundMap = {
 }
 
 function Card(props) {
-  const {key1, usr, message, color, time, images = [], voiceColor,voice, replies, commontCallback } = props;
+  const {key1, usr, message, color, time, images = [], voiceColor,voice, replies, commontCallback,avatorIcon } = props;
 
   const cardStyle = {
     width: '80%',
@@ -33,8 +33,8 @@ function Card(props) {
     width: '28px',
     height: '28px',
     borderRadius: '50%',
-    backgroundColor: color,
     marginRight: '5px',
+    backgroundImage: `url(${avatorIcon})`,
   }
   const usrStyle = {
     fontWeight: '500',

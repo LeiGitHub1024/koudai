@@ -8,6 +8,9 @@ import ReturnComponent from '../components/ReturnComponent/return';
 import NewMessageDrawer from './NewMessageDrawer';
 import request from '../utils/request';
 import './MessageBoard.less'
+import childAvator from '../assets/我.png'
+import motherAvator from '../assets/妈妈.png'
+import fatherAvator from '../assets/爸爸.png'
 
 
 import boardHead from '../assets/A02留言板-头部.png'
@@ -64,17 +67,17 @@ function MessageBoard() {
           <div>
             <div style={dataStyle}>05/26</div>
               {data.map(item => (
-                <MessageCard key={item?.message_id} usr={item?.user_name} time={item?.date_time} voice={item?.audio_file} voiceColor={item?.emotion_arousal} voiceBackgroundColor={item?.emotion_arousal}  message={item?.content} replies={item?.replies} color='gold' />
+                <MessageCard key={item?.message_id} avatorIcon={fatherAvator} usr={item?.user_name} time={item?.date_time} voice={item?.audio_file} voiceColor={item?.emotion_arousal} voiceBackgroundColor={item?.emotion_arousal}  message={item?.content} replies={item?.replies} color='gold' />
               ))}
           </div>
         )}
         <div style={dataStyle}>05/25</div>
-        <MessageCard usr="我" time='14:24' voiceColor={4}  images={[Img1,Img2,Img3]} message="今天下午上数学课的时候，下起一场特大的雨。老师让我们到外面观察雨，一些同学非常开心，调皮的同学把裤子卷得高高的，然后在水坑里跳来跳去，水溅得到处都是。多么快乐的一场雨啊！" color='gold' />
-        <MessageCard usr="我" time='11:24' voiceColor={1} message="上午和好朋友吵架了，心情不美丽！" color='green' />
-        <MessageCard usr="妈妈" time='09:30' voiceColor={4}  images={[Img4,Img5]} message="今天上午翻看宝宝相册，真可爱啊！一眨眼就长大了，很想悠悠。" color='gold' />
+        <MessageCard usr="我" time='14:24' voiceColor={4} avatorIcon={childAvator}  images={[Img1,Img2,Img3]} message="今天下午上数学课的时候，下起一场特大的雨。老师让我们到外面观察雨，一些同学非常开心，调皮的同学把裤子卷得高高的，然后在水坑里跳来跳去，水溅得到处都是。多么快乐的一场雨啊！" color='gold' />
+        <MessageCard usr="我" time='11:24' voiceColor={1} avatorIcon={childAvator} message="上午和好朋友吵架了，心情不美丽！" color='green' />
+        <MessageCard usr="妈妈" time='09:30' voiceColor={4} avatorIcon={motherAvator} images={[Img4,Img5]} message="今天上午翻看宝宝相册，真可爱啊！一眨眼就长大了，很想悠悠。" color='gold' />
         <div style={dataStyle}>05/24</div>
-        <MessageCard usr="爸爸" time="21:40" images={[Img6]} voiceColor={5}  message="今天！跑单王！！" color='gold' />
-        <MessageCard usr="我" time="12:20" voiceColor={4} message="上午被老师表扬了，开心！" color='green' />
+        <MessageCard usr="爸爸" time="21:40" images={[Img6]} avatorIcon={fatherAvator}  voiceColor={5}  message="今天！跑单王！！" color='gold' />
+        <MessageCard usr="我" time="12:20" voiceColor={4} avatorIcon={childAvator} message="上午被老师表扬了，开心！" color='green' />
         <div style={{height:100}}></div>
       </div>
       <div style={{position:'absolute',width:'100%',backgroundColor:'white',height:'80px',bottom:'0px'}}></div>
@@ -83,13 +86,11 @@ function MessageBoard() {
       </div>
       </div>
 
-
-
-
       <NewMessageDrawer
         visible={visible2}
         setVisible={setVisible2}
         getPopupContainer={() => refWrapper && refWrapper.current}
+        hooks={() => {init()}}
 
       ></NewMessageDrawer>
 
