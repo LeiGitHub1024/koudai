@@ -7,7 +7,7 @@ function CloseComponent(props) {
   const { to = "/", callback } = props;
 
   return (
-    <Link style={{ position:'absolute', right: 15 }} to={to}>
+    <Link style={{ position:'absolute', right: 15,zIndex:100 }} to={to}>
         <div style={{ width: 42, height: 42, backgroundColor: 'white', borderRadius: '50%', marginTop: '40px', display: 'flex', justifyContent: 'center', alignItems: 'center' }}
         >
           <IconClose onClick={()=>{callback&&callback()}}  fontSize={28} />

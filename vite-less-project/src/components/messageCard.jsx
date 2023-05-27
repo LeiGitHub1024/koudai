@@ -4,22 +4,22 @@ import { IconHeart, IconMessage } from '@arco-design/web-react/icon';
 import replyIcon from '../assets/回复.png'
 import Heart from './Heart';
 const voiceColorMap = {
-  1: '#ffd100',
-  2: '#ffd100',
-  3: '#ffd100',
-  4: '#ffd100',
-  5: '#ffd100',
+  1: '#35A7FF',
+  2: '#917EFF',
+  3: '#D9C800',
+  4: '#FF8337',
+  5: '#4BA48C',
 }
 const voiceBackgroundMap = {
-  1: '#FEF9D3',
-  2: '#FEF9D3',
+  1: '#D6F6FE',
+  2: '#DAD4FE',
   3: '#FEF9D3',
-  4: '#FEF9D3',
-  5: '#FEF9D3',
+  4: '#FFE5D3',
+  5: '#D2F9E8',
 }
 
 function Card(props) {
-  const {key1, usr, message, color, time, images = [], voiceColor, voiceBackgroundColor,voice, replies, commontCallback } = props;
+  const {key1, usr, message, color, time, images = [], voiceColor,voice, replies, commontCallback } = props;
 
   const cardStyle = {
     width: '80%',
@@ -66,7 +66,7 @@ function Card(props) {
     height: 28,
     borderRadius: '15px',
     border: 0,
-    backgroundColor: voiceBackgroundMap[voiceBackgroundColor],
+    backgroundColor: voiceBackgroundMap[voiceColor],
     color: voiceColorMap[voiceColor],
   }
 
