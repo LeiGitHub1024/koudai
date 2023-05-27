@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import ReactDOM from 'react-dom';
-
+import { Divider } from '@arco-design/web-react';
 import AiChatCard from '../components/AiChatCard/chatCard'
 import ChildChatCard from '../components/ChildChatCard/chatCard'
 import Input from '../components/Input';
@@ -8,6 +8,7 @@ import { IconLeft } from '@arco-design/web-react/icon';
 import CloseComponent from '../components/CloseComponent/close.jsx';
 import bg_chat from '../assets/AI学习-背景.png'
 import request from '../utils/request';
+import './Chat.less'
 //节流
 function throttle(fn, delay) {
   let timer = null;
@@ -245,7 +246,7 @@ function Chat() {
                 };
                 setNewChatMessage(prevMessages => [...prevMessages.slice(0, prevMessages.length - 1), newChatCard]);
                 resolve()
-              }, 50);
+              }, 10);
             })
           }
         }
@@ -268,6 +269,11 @@ function Chat() {
         message.usr === 'GPT' ? <AiChatCard key={index} usr={message.usr} message={message.message} color={message.color} /> :
                             <ChildChatCard key={index} usr={message.usr} message={message.message} color={message.color} />
         ))}
+
+        <div style={{  width: '230px', margin: 'auto', left: 0, right: 0 }}>
+          <Divider orientation={'center'}>2023/05/25</Divider>
+        </div>
+
 
         {newChatMessage.map((message, index) => (
         message.usr === 'GPT' ? <AiChatCard key={index} usr={message.usr} message={message.message} color={message.color} /> :
