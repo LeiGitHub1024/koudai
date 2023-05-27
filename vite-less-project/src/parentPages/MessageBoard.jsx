@@ -82,12 +82,12 @@ function MessageBoard() {
           </div>
         )}
         <div style={dataStyle}>05/25</div>
-        <MessageCard usr=”悠悠“ time='14:24' voiceColor='#ffd100' voiceBackgroundColor='#FEF9D3' images={[Img1,Img2,Img3]} message="今天下午上数学课的时候，下起一场特大的雨。老师让我们到外面观察雨，一些同学非常开心，调皮的同学把裤子卷得高高的，然后在水坑里跳来跳去，水溅得到处都是。多么快乐的一场雨啊！" color='gold' />
-        <MessageCard usr=”悠悠“ time='11:24' voiceColor='#35a7ff' voiceBackgroundColor='#D6F6FE' message="上午和好朋友吵架了，心情不美丽！" color='green' />
+        <MessageCard usr="悠悠" time='14:24' voiceColor='#ffd100' voiceBackgroundColor='#FEF9D3' images={[Img1,Img2,Img3]} message="今天下午上数学课的时候，下起一场特大的雨。老师让我们到外面观察雨，一些同学非常开心，调皮的同学把裤子卷得高高的，然后在水坑里跳来跳去，水溅得到处都是。多么快乐的一场雨啊！" color='gold' />
+        <MessageCard usr="悠悠" time='11:24' voiceColor='#35a7ff' voiceBackgroundColor='#D6F6FE' message="上午和好朋友吵架了，心情不美丽！" color='green' />
         <MessageCard usr="妈妈" time='09:30' voiceColor='#917eff' voiceBackgroundColor='#DaD4Fe' images={[Img4,Img5]} message="今天上午翻看宝宝相册，真可爱啊！一眨眼就长大了，很想悠悠。" color='gold' />
         <div style={dataStyle}>05/24</div>
         <MessageCard usr="爸爸" time="21:40" images={[Img6]} voiceColor='#d57ac0' voiceBackgroundColor='#ffe5d3'  message="今天！跑单王！！" color='gold' />
-        <MessageCard usr=”悠悠“ time="12:20" voiceColor='#d57ac0' voiceBackgroundColor='#ffe5d3' message="上午被老师表扬了，开心！" color='green' />
+        <MessageCard usr="悠悠" time="12:20" voiceColor='#d57ac0' voiceBackgroundColor='#ffe5d3' message="上午被老师表扬了，开心！" color='green' />
         <div style={{height:100}}></div>
       </div>
       <div style={{position:'absolute',width:'100%',backgroundColor:'white',height:'80px',bottom:'0px'}}></div>
