@@ -31,6 +31,7 @@ function Chat() {
   //   history.goBack();
   // };
   useEffect(() => {
+    scrollToBottom()
     init()
   }, []);
   const [chatMessages, setChatMessages] = useState([
