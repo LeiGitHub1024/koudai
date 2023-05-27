@@ -1,0 +1,38 @@
+
+.heart {
+  cursor: pointer;
+  height: 55px;
+  width: 55px;
+  background-image: url('./heart-burst-animation.png');
+  background-repeat: no-repeat;
+  background-size: 2900%;
+  transform: scale(1.3);
+  display: inline-block;
+  margin-bottom: -19px;
+  opacity: .6;
+  transition: opacity .4s;
+  /* &:hover {
+    opacity: 1;
+  } */
+}
+
+.right {
+  background-position: right;
+}
+
+.left {
+  background-position: left;
+}
+
+.is_animating {
+  animation: heart-burst 1.2s steps(28) 1;
+}
+
+@keyframes heart-burst {
+  from {
+    background-position: left;
+  }
+  to {
+    background-position: right;
+  }
+}

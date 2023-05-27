@@ -1,0 +1,13 @@
+
+.App{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  font-family: 'Yuanti SC';
+  font-weight: 700;
+
+  width: 375px;
+  height:812px;
+
+}
