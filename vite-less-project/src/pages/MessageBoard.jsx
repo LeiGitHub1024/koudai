@@ -63,9 +63,9 @@ function MessageBoard() {
       <div style={{height:230,width:'100%',backgroundImage:`url(${boardHead})`,backgroundRepeat:'no-repeat'}}></div>
 
       <div style={MessageContainerStyle}>
-          {data.length && (
+          {data.length ?? (
           <div>
-            <div style={dataStyle}>05/26</div>
+            <div style={dataStyle}>05/27</div>
               {data.map(item => (
                 <MessageCard key={item?.message_id} avatorIcon={childAvator} usr={item?.user_name} time={item?.date_time} voice={item?.audio_file} voiceColor={item?.emotion_arousal} voiceBackgroundColor={item?.emotion_arousal}  message={item?.content} replies={item?.replies} color='gold' />
               ))}
