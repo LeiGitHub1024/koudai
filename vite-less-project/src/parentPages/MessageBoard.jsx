@@ -73,7 +73,7 @@ function MessageBoard() {
       <div style={{height:230,width:'100%',backgroundImage:`url(${boardHead})`,backgroundRepeat:'no-repeat'}}></div>
 
       <div style={MessageContainerStyle}>
-          {data.length>0?? (
+          {data.length>0&& (
           <div>
             <div style={dataStyle}>05/27</div>
               {data.map(item => (
