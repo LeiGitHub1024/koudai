@@ -2,6 +2,7 @@ import React, { useState ,useEffect} from 'react';
 import request from '../../utils/request';
 
 import buttonIcon from '../../assets/A03留言板-子女视角-语音按钮.png'
+import voiceGif from '../../assets/语音.gif'
 
 const AudioRecorder = (props) => {
   const {recordHook,apiName='addMessage',userId=1} = props
@@ -67,6 +68,11 @@ const AudioRecorder = (props) => {
     <div>
       <button onClick={isRecording ? stopRecording : startRecording} style={{backgroundImage:`url(${buttonIcon})`,  height:62,width:190,border:'0px',backgroundColor:'transparent'  }}>
         {/* {isRecording ? '停止录音' : '开始录音'} */}
+        {isRecording ? <div style={{marginLeft:20 , width: '80%', height: '80%', borderRadius:'50px'  ,backgroundImage:`url(${voiceGif})`, backgroundColor:'#ffd100'}}></div>
+          : <div ></div>
+        }
+
+        
       </button>
       {/* <button onClick={saveRecording} disabled={!audioBlob}>
         保存录音
