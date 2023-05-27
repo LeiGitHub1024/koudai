@@ -92,7 +92,7 @@ function MessageBoard() {
       </div>
       <div style={{position:'absolute',width:'100%',backgroundColor:'white',height:'80px',bottom:'0px'}}></div>
       <div style ={{width:'100%', display:'flex', justifyContent:'center',position:'absolute',bottom:30}}>
-          <Button size='large' style={{ marginBottom:'10px', width: 80, height: 80, borderRadius: '50%', color:'black',backgroundColor:'#ffcb04',border:'solid 6px white'}} type='primary' icon={<IconPlus style={{fontSize: 40, }} />}  ></Button>
+          <Button size='large' style={{ marginBottom:'10px', width: 80, height: 80, borderRadius: '50%', color:'black',backgroundColor:'#ffd100',border:'solid 6px white'}} type='primary' icon={<IconPlus style={{fontSize: 40, }} />}  ></Button>
       </div>
       </div>
 
