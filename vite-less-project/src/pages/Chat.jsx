@@ -272,7 +272,7 @@ function Chat() {
         ))}
 
         <div style={{  width: '230px', margin: 'auto', left: 0, right: 0 }}>
-          <Divider orientation={'center'}>2023/05/25</Divider>
+          <Divider orientation={'center'}>2023/05/26</Divider>
         </div>
 
 

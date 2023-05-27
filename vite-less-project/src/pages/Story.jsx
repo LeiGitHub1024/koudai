@@ -56,7 +56,7 @@ function Story() {
 
       <ReturnComponent marginTop='40px' />
 
-      <div style={titleStyle}> 小红帽与大灰狼</div>
+      <div style={titleStyle}></div>
       <div style={operateStyle}>
 
         <audio style={{display:'none'}} ref={audioRef} src={pig_story} type="audio/wav"  controls />
