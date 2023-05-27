@@ -88,7 +88,7 @@ function MessageBoard() {
         <div style={dataStyle}>05/24</div>
         <MessageCard usr="爸爸" time="21:40" images={[Img6]} voiceColor='#d57ac0' voiceBackgroundColor='#ffe5d3'  message="今天！跑单王！！" color='gold' />
         <MessageCard usr="我" time="12:20" voiceColor='#d57ac0' voiceBackgroundColor='#ffe5d3' message="上午被老师表扬了，开心！" color='green' />
-        <div style={{height:50}}></div>
+        <div style={{height:100}}></div>
       </div>
       <div style={{position:'absolute',width:'100%',backgroundColor:'white',height:'80px',bottom:'0px'}}></div>
       <div style ={{width:'100%', display:'flex', justifyContent:'center',position:'absolute',bottom:30}}>

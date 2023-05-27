@@ -2,6 +2,7 @@ import React, { useRef,useState } from 'react';
 import { Button } from '@arco-design/web-react';
 import { IconHeart, IconMessage } from '@arco-design/web-react/icon';
 import replyIcon from '../assets/回复.png'
+import Heart from './Heart';
 const voiceColorMap = {
   1: '#ffd100',
   2: '#ffd100',
@@ -55,7 +56,7 @@ function Card(props) {
 
   }
   const bottomUtilStyle = {
-    margin:'10px 0 0 0',
+    margin:'-10px 0 0 0',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'space-between',
@@ -103,13 +104,12 @@ function Card(props) {
         <div style={bottomUtilStyle}>
           <audio style={{display:'none'}} ref={audioRef} src={voice} type="audio/wav"  controls />
           <button onClick={handlePlayPause} style={buttonStyle} > 21 &nbsp;l丨l丨l丨l</button>
-          <div>
-            <IconHeart style={{ fontSize: 30, marginRight: 28 }} />
-            <IconMessage onClick={()=>{commontCallback(key1)}} style={{fontSize:30}} />
-          </div>
+            
+          <div style={{ marginBottom: 10, marginLeft:100}}><Heart ></Heart></div>
+          <IconMessage onClick={()=>{commontCallback(key1)}} style={{fontSize:26}} />
         </div>
 
-        <div style={{ marginTop:20, display: replies?.length ?'flex':'none' ,padding:10,  borderRadius:'15px',backgroundColor:'#f4f4f4'}}>
+        <div style={{ marginTop:0, display: replies?.length ?'flex':'none' ,padding:10,  borderRadius:'15px',backgroundColor:'#f4f4f4'}}>
           <IconMessage style={{fontSize:20, margin:'8 2 0 0 '}} />
 
           <div style={{ fontWeight: 400, color: '#666' }}>
